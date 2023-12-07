@@ -16,7 +16,7 @@ public class Cidade extends GenericModel {
         this.descricao = descricao;
         this.codigo = codigo;
         this.id_uf = id_uf;
-        super.setId(id_uf);
+        super.setId(id);
     }
 
     public String getDescricao() {

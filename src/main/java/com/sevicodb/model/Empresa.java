@@ -24,7 +24,7 @@ public class Empresa extends GenericModel {
         this.cnpj = cnpj;
         this.slogan = slogan;
         this.id_endereco = id_endereco;
-        super.setId(id_endereco);
+        super.setId(id);
     }
 
     public String getNome_fantasia() {
