@@ -2,8 +2,6 @@ package com.sevicodb.DAO;
 
 import com.sevicodb.model.ItemOrdemServico;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +36,7 @@ public class ItemOrdemServicoDAO extends ConexaoDB {
     public void insertItemOrdemServico(ItemOrdemServico entidade) {
         try (PreparedStatement preparedStatement = prapararSQL(INSERT_ITEM_ORDEM_SERVICO_SQL)) {
             preparedStatement.setString(1, entidade.getDescricao());
-            preparedStatement.setBigDecimal(2, new BigDecimal(entidade.getPreco()));
+            preparedStatement.setLong(2, new Long(entidade.getPreco()));
             preparedStatement.setInt(3, entidade.getId_ordem_servico());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -56,7 +54,7 @@ public class ItemOrdemServicoDAO extends ConexaoDB {
 
             while (rs.next()) {
                 String descricao = rs.getString("descricao");
-                BigInteger preco = rs.getBigDecimal("preco").toBigInteger();
+                Long preco = rs.getLong("preco");
                 Integer id_ordem_servico = rs.getInt("id_ordem_servico");
                 entidade = new ItemOrdemServico(id, descricao, preco, id_ordem_servico);
             }
@@ -76,7 +74,7 @@ public class ItemOrdemServicoDAO extends ConexaoDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String descricao = rs.getString("descricao");
-                BigInteger preco = rs.getBigDecimal("preco").toBigInteger();
+                Long preco = rs.getLong("preco");
                 Integer id_ordem_servico = rs.getInt("id_ordem_servico");
                 entidades.add(new ItemOrdemServico(id, descricao, preco, id_ordem_servico));
             }
@@ -100,7 +98,7 @@ public class ItemOrdemServicoDAO extends ConexaoDB {
     public boolean updateItemOrdemServico(ItemOrdemServico entidade) throws SQLException {
         try (PreparedStatement statement = prapararSQL(UPDATE_ITEM_ORDEM_SERVICO_SQL)) {
             statement.setString(1, entidade.getDescricao());
-            statement.setBigDecimal(2, new BigDecimal(entidade.getPreco()));
+            statement.setLong(2, new Long(entidade.getPreco()));
             statement.setInt(3, entidade.getId_ordem_servico());
             statement.setInt(4, entidade.getId());
 

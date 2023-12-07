@@ -1,6 +1,6 @@
 package com.sevicodb.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class OrdemServico extends GenericModel{
     private String observacao;

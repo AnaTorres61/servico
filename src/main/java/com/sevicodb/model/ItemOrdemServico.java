@@ -1,19 +1,17 @@
 package com.sevicodb.model;
 
-import java.math.BigInteger;
-
 public class ItemOrdemServico extends GenericModel {
     private String descricao;
-    private BigInteger preco;
+    private Long preco;
     private Integer id_ordem_servico;
     
-    public ItemOrdemServico(String descricao, BigInteger preco, Integer id_ordem_servico) {
+    public ItemOrdemServico(String descricao, Long preco, Integer id_ordem_servico) {
         this.descricao = descricao;
         this.preco = preco;
         this.id_ordem_servico = id_ordem_servico;
     }
 
-    public ItemOrdemServico(Integer id, String descricao, BigInteger preco, Integer id_ordem_servico) {
+    public ItemOrdemServico(Integer id, String descricao, Long preco, Integer id_ordem_servico) {
         this.descricao = descricao;
         this.preco = preco;
         this.id_ordem_servico = id_ordem_servico;
@@ -28,11 +26,11 @@ public class ItemOrdemServico extends GenericModel {
         this.descricao = descricao;
     }
 
-    public BigInteger getPreco() {
+    public Long getPreco() {
         return preco;
     }
 
-    public void setPreco(BigInteger preco) {
+    public void setPreco(Long preco) {
         this.preco = preco;
     }
 
